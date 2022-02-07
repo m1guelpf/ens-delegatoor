@@ -1,6 +1,6 @@
-import useMetaDelegate from '@/hooks/useMetadelegate'
-import useWeb3 from '@/hooks/useWeb3'
 import { useState } from 'react'
+import useWeb3 from '@/hooks/useWeb3'
+import useMetaDelegate from '@/hooks/useMetaDelegate'
 
 const MetaDelegateForm = () => {
 	const { web3 } = useWeb3()
