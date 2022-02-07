@@ -1,12 +1,12 @@
 import useWeb3 from '@/hooks/useWeb3'
-import coverImage from '@images/card.jpg'
+import MetaTags from '@/components/MetaTags'
+import { ZERO_ADDRESS } from '@/lib/constants'
 import { formatAddressShort } from '@/lib/utils'
 import TweetEmbed from '@/components/TweetEmbed'
 import useENSBalance from '@/hooks/useENSBalance'
 import useENSDelegate from '@/hooks/useENSDelegate'
-import MetaTags from '@/components/MetaTags'
 import ConnectWallet from '@/components/ConnectWallet'
-import { ZERO_ADDRESS } from '@/lib/constants'
+import MetaDelegateForm from '@/components/MetaDelegateForm'
 
 const Home = () => {
 	const ensBalance = useENSBalance()
@@ -16,7 +16,7 @@ const Home = () => {
 	return (
 		<>
 			<MetaTags />
-			<div className="p-4 md:p-0 flex flex-col items-center justify-center min-h-screen space-y-10 max-w-2xl mx-auto">
+			<div className="p-4 md:py-10 md:px-0 flex flex-col items-center justify-center min-h-screen space-y-10 max-w-2xl mx-auto">
 				<ConnectWallet />
 				<p className="text-black text-2xl md:text-4xl leading-relaxed font-medium md:text-center">
 					Hi{' '}
@@ -45,7 +45,7 @@ const Home = () => {
 					>
 						the ENS website
 					</a>
-					. Here&apos;s who the community recommends:{' '}
+					, or using the form below. Here&apos;s who the community recommends:{' '}
 				</p>
 				<TweetEmbed tweetId={'1490177252142759943'}>
 					<a
@@ -58,6 +58,13 @@ const Home = () => {
 						their $ENS? - @m1guelpf (via Twitter)
 					</a>
 				</TweetEmbed>
+				<div className="space-y-6 mx-auto">
+					<p className="text-black text-xl md:text-3xl leading-relaxed font-medium md:text-center">
+						If you want to delegate to an address, but don&apos;t want to pay for the gas, you can use the
+						form below to delegate via meta-transactions.
+					</p>
+					<MetaDelegateForm />
+				</div>
 			</div>
 		</>
 	)
