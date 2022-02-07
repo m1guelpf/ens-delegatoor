@@ -62,6 +62,7 @@ const useWeb3 = (): {
 
 				setUserENS(ensDomain)
 			})
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [web3])
 
 	useEffect(() => {
